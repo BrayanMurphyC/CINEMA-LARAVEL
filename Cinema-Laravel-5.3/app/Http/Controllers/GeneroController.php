@@ -29,7 +29,7 @@ class GeneroController extends Controller
       // return view('genero.create');   //nos retorna la vista en la carpeta  genero el archivo create.blade.php
 
       //CON AJAX
-      return view('genero.create');  
+      return view('genero.create');
     }
 
     /**
