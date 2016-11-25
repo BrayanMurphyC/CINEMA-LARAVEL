@@ -127,8 +127,7 @@ class UsuarioController extends Controller{
        $user = User::find($id); //creamos una variable usuario que sera igual al modelo USUARIO donde encontremos al usuario con este id (FIND es encontrar)
        return view('usuario.edit',['user'=>$user]); //y retornamos una vista donde se encuentra en la carpeta usuario fichero edit, a la cual
                                                     //tenemos que pasarle el usuario correspondiente, le mandamos al user y lo salvamos al user la variable
-                                                    //al formulario edit le pasamos la informacion del usuario encontrado por su id para que lo use 
-
+                                                    //al formulario edit le pasamos la informacion del usuario encontrado por su id para que lo use
     }
 
     /**
