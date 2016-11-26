@@ -4,7 +4,7 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Cinema\Genre; //USAMOS PARA USAR EL NAMESPACE DE NUESTRA APLICACION Y USAR EL MODELO Genre
+use Cinema\Genre; //USAMOS PARA USAR EL NAMESPACE DE NUESTRA APLICACION Y USAR EL MODELO Genre //incorporamos el modelo
 use Cinema\Http\Requests;
 class GeneroController extends Controller
 {
@@ -29,7 +29,7 @@ class GeneroController extends Controller
       // return view('genero.create');   //nos retorna la vista en la carpeta  genero el archivo create.blade.php
 
       //CON AJAX
-      return view('genero.create');
+      return view('genero.create'); //nos retorna la vista en la carpeta  genero el archivo create.blade.php
     }
 
     /**
@@ -40,6 +40,7 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
+
    //SIN AJAX
       /** PARTE SIN AJAX PARA CREAR GENERO, PONER EL CAMPO DE LA BASE DE DATO IGUAL QUE EL NOMBRE DEL FORMULARIO*/
        //Genre::create([
@@ -47,8 +48,24 @@ class GeneroController extends Controller
        //]);
        //return "Usuario Registrado"; //nos dice si se registro el usuario y no retorna
 
-    }
+       // CON AJAX
 
+   /**  //prueba antes de ajax ver en network debe mandar el mensaje
+     if ($request->ajax()){ //si esta peticieno es mediante ajax
+          return response()->json([ //daremos una respuesta tipo JSON donde vamos a enviar un mensaje
+             "mensaje"=>$request->all(), //mensaje que enviara todo lo que nos esta llegando
+          ]);
+       }
+       */
+
+       if($request->ajax()){ //si esta peticieno es mediante ajax
+          Genre::create($request->all());
+          return response()->json([ //daremos una respuesta tipo JSON donde vamos a enviar un mensaje
+            "mensaje" => 'creado', //mensaje que enviara todo lo que nos esta llegando
+          ]);
+       }
+
+}
     /**
      * Display the specified resource.
      *

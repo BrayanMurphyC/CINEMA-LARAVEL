@@ -3,7 +3,7 @@
 
   {{-- NOS SALTA LAS NOTIFICACIONES DE ERRORES DE LOS CAMPOS DEL FORMUARIO SI LLENAMOS MAL , lo metimos en la carpeta alerts fichero request ya que siempre usaremos--}}
 
-  @include('alerts.request') {{--LAS VALIDACIOES REQUEST- llama al mensaje de alerta de errores que esta en la carpeta alerts en el fichero request, codigo que se repite--}}
+  @include('alerts.request') {{--LAS VALIDACIONES REQUEST- llama al mensaje de alerta de errores que esta en la carpeta alerts en el fichero request, codigo que se repite--}}
 
 {{-- enrutamos el formulario, agregamos la ruta para crear usuario AL STORE POR QUE ES ALMACENAR,
 mediante un array (que se represena po corchetes) route que sera de usuario al metodo store se ira del controlador usuariocontroller,
