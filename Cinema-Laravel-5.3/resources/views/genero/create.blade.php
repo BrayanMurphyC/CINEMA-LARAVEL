@@ -8,7 +8,7 @@ era registro y el segundo le pasaremos la clase--}}
       {!!link_to('#', $title='Registrar', $attributes=['id'=>'registro','class'=>'btn btn-primary'], $secure = null);!!}
 
       {!!Form::close()!!}
-      @endsection --}}
+      @endsection 
 
 
 
