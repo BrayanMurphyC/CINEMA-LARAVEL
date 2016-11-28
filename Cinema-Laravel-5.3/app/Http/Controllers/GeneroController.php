@@ -13,10 +13,17 @@ class GeneroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       //  return 'hola estamos en el index';
+      if ($request->ajax()) {
+           $genres = Genre::all();
+           return response()->json($genres);
+      }
+      return view('genero.index');
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -59,9 +66,11 @@ class GeneroController extends Controller
        */
 
        if($request->ajax()){ //si esta peticieno es mediante ajax
-          Genre::create($request->all());
+          Genre::create($request->all());   //Genre::create([
+                                            //'genre'=> $request['genre'], //puedo insertar datos de esta forma tambien
+                                            //]);
           return response()->json([ //daremos una respuesta tipo JSON donde vamos a enviar un mensaje
-            "mensaje" => 'creado', //mensaje que enviara todo lo que nos esta llegando
+            "mensaje" => 'creado', //mensaje que enviara todo lo que nos esta llegando, aparecera en modo desarrollador
           ]);
        }
 

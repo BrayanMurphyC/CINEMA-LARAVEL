@@ -20,7 +20,7 @@ class UsuarioController extends Controller{
   //dejamos auth para que se aplique a todo
    public function __construct(){
      $this->middleware('auth');  //http://localhost:8000/usuario/create cuando tratemos de entrar nos redireccionara al http://localhost:8000/login ese login se cambia en Exceptions Handler ponemos la raiz del sitio donde deba loguarse, este auth es default de laravel asi no mas funciona
-     $this->middleware('admin'); // PRIMERO SE EJECUTARA EL MiddlewareDE AUTENTIFICACION AUTH(viene por defacult de laravel) DESPUES se ejecuta este segundo que creamos el admin para permisos de superusuario por id
+     $this->middleware('admin'); // PRIMERO SE EJECUTARA EL MiddlewareDE AUTENTIFICACION AUTH(viene por defacult de laravel) DESPUES se ejecuta este segundo que CREAMOS EL ADMIN para permisos de superusuario por id
   }                               //le decimos que aplicara a todo las rutas para su acceso, si no tiene priviligegios nos mostrara solo el admin
                                   //no tendra privilegios para esto ponemos el mensaje de alerts errors
                                   //el usuario tendra todos los privilegios y quien no es el id 1 no tendra ningun acceso por eso solo ponemos admin no especificamos las otras rutas
@@ -128,6 +128,7 @@ class UsuarioController extends Controller{
        return view('usuario.edit',['user'=>$user]); //y retornamos una vista donde se encuentra en la carpeta usuario fichero edit, a la cual
                                                     //tenemos que pasarle el usuario correspondiente, le mandamos al user y lo salvamos al user la variable
                                                     //al formulario edit le pasamos la informacion del usuario encontrado por su id para que lo use
+      // return view('usuario.edit',compact('user')); //ES LO MISMO PASAR EL user usando el compacto que manda todo el valor
     }
 
     /**

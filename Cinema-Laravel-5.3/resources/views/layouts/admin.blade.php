@@ -103,7 +103,7 @@
                                     <a href="/genero/create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Generos</a>
+                                    <a href="/genero"><i class='fa fa-list-ol fa-fw'></i> Generos</a>
                                 </li>
                             </ul>
                         </li>
@@ -131,10 +131,17 @@
     <script src="js/sb-admin-2.js"></script> -->
 
     {!!Html::script('js/jquery.min.js')!!}
-    {!!Html::script('js/script.js')!!} <!--PARA PODER USAR EL AJAX - CREAR CON AJAX-->
+    {{-- {!!Html::script('js/script.js')!!} <!--PARA PODER USAR EL AJAX - CREAR CON AJAX, lo quitamos para solo suar en las secciones especificas--> --}}
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+
+
+    {{--PARA LOS AJAX - FIN DE SOLO CARGAR CUANDO LO USEMOS, NO SE CARGUE EN TOODO EL PROYECTO, el scrip que usaremos debe de ir  llamando y asiendo referencia al
+    la seccion scripts que estamos creando y este le cargara  cuando se usa --}}
+       @section('scripts')
+
+       @show
 </body>
 
 </html>

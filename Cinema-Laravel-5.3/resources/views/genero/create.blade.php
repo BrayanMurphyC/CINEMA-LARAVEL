@@ -1,3 +1,4 @@
+{{--FORMULARIO PARA CREAR GENERO --}}
 @extends('layouts.admin')
     @section('content')
       {!!Form::open()!!}
@@ -6,18 +7,24 @@
        		<strong> Genero Agregado Correctamente.</strong>
    	</div>
 
-         {{--token sirve para que laravel reconozca que esa peticion no es malintencionada le asiga un token---}}
+         {{--TOKEN sirve para que laravel reconozca que esa peticion no es malintencionada le asiga un token---}}
          <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token"> {{-- el ID hace mas facil de obtener su valor en AJAX--}}
+
          @include('genero.form.genero')  {{--aca incluimos el codigo repetido html--}}
 
-{{-- Incluimos link_to donde no nos llevara a ninguna ruta, el titulo registrar y como atributo le pasamos el ID el cual s
-era registro y el segundo le pasaremos la clase--}}
+{{-- Incluimos link_to donde no nos llevara a ninguna ruta, el titulo registrar y como atributo le pasamos el ID el cual sera
+registro y el segundo le pasaremos la clase--}}
       {!!link_to('#', $title='Registrar', $attributes = ['id'=>'registro', 'class'=>'btn btn-primary'], $secure = null)!!}
 
       {!!Form::close()!!}
 	  @endsection
 
 
+{{--llamar al script AJAX para crear, ESTO IRA A LA PARTE DEL ADMIN A CARGAR EL script por el section y show, que lo utilizara solo cuando lo necesite--}}
+{{--a ca en crear usaremos el script.js --}}
+    @section('scripts')
+           {!!Html::script('js/script.js')!!} <!--PARA PODER USAR EL AJAX - CREAR CON AJAX-->
+    @endsection
 
 
 {{--SIN AJAX--}}
