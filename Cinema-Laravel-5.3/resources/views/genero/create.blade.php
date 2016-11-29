@@ -2,10 +2,15 @@
 @extends('layouts.admin')
     @section('content')
       {!!Form::open()!!}
-
+{{-- mensaje de GENERO CREADO CORRECTAMENTE --}}
       <div id="msj-success" class="alert alert-success alert-dismissible" role="alert" style="display:none">
        		<strong> Genero Agregado Correctamente.</strong>
    	</div>
+
+{{--MENSAJE DE ERRORES - VALIDACIONES--}}
+      <div id="msj-error" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
+          <strong id="msjvalidaciones"> </strong>
+      </div>
 
          {{--TOKEN sirve para que laravel reconozca que esa peticion no es malintencionada le asiga un token---}}
          <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token"> {{-- el ID hace mas facil de obtener su valor en AJAX--}}

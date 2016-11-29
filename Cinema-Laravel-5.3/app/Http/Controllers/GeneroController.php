@@ -4,10 +4,24 @@ namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//agregamos para usar
+use Cinema\Http\Requests\GenreRequest; //por las validaciones usamos el GenreRequest PONEMOS TRUE EN EL Requests
 use Cinema\Genre; //USAMOS PARA USAR EL NAMESPACE DE NUESTRA APLICACION Y USAR EL MODELO Genre //incorporamos el modelo
 use Cinema\Http\Requests;
 class GeneroController extends Controller
 {
+
+  //FUNCION PARA LISTAR IGUAL QUE EL METODO INDEX ES LO MISMO SOLO QUE TUVO QUE ENRUTARLO
+  // public function listing(Request $request)
+  // {
+  //   //  return 'hola estamos en el index';
+  //
+  //   if ($request->ajax()) {
+  //        $genres = Genre::all();
+  //        return response()->json($genres); //respondemos mediante json donde solamente pasaremos nuestros generos, le estamos mandando nuestros generos del MODELO
+  //   }
+  //}
+
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +30,10 @@ class GeneroController extends Controller
     public function index(Request $request)
     {
       //  return 'hola estamos en el index';
+
       if ($request->ajax()) {
            $genres = Genre::all();
-           return response()->json($genres);
+           return response()->json($genres); //respondemos mediante json donde solamente pasaremos nuestros generos
       }
       return view('genero.index');
 
@@ -40,12 +55,12 @@ class GeneroController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. CREAR GENERO
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GenreRequest $request) //especificamos el GenreRequest por las VALIDACIONES SOLO ERA request $request
     {
 
    //SIN AJAX
@@ -65,7 +80,7 @@ class GeneroController extends Controller
        }
        */
 
-       if($request->ajax()){ //si esta peticieno es mediante ajax
+       if($request->ajax()){ //si esta peticion es mediante ajax
           Genre::create($request->all());   //Genre::create([
                                             //'genre'=> $request['genre'], //puedo insertar datos de esta forma tambien
                                             //]);
@@ -94,7 +109,8 @@ class GeneroController extends Controller
      */
     public function edit($id)
     {
-        //
+      $genre = Genre::find($id);//BUSCAMOS UN GENERO, QUE LO ENCONTRAR POR SU ID (find es encontrar)
+      return response()->json($genre); //repuesta JSON enviando la variable genero que encontro los id
     }
 
     /**
@@ -106,7 +122,10 @@ class GeneroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $genre = Genre::find($id); //BUSCAMOS UN GENERO, QUE LO ENCONTRAR POR SU ID (find es encontrar)
+      $genre->fill($request->all()); //al cual hacemos referencia al metodo fill y pasamos todo
+      $genre->save(); // y lo salvamos o guadamos
+      return response()->json(["mensaje" => "listo esta editado"]); //regresamos una respuesta de tipo JSON en la consola se vera EN network
     }
 
     /**
@@ -117,6 +136,8 @@ class GeneroController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Genre::destroy($id);
+        // $this->genre->delete(); //hacemos referencia al metodo delete NO ME FUNCIONA DE ESTA FORMA por eso lo comente  es por la version de laravel
+     return response()->json(["mensaje"=>"borrado el genero"]); //retornamos la respuesta de tipo JSON que el mensaje se ah borrado
     }
 }

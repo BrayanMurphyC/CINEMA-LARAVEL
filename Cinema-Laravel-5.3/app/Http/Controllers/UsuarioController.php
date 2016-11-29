@@ -144,7 +144,7 @@ class UsuarioController extends Controller{
         //creamos las funciones para que pueda ser actualizado
         $user = User::find($id);  //buscamos al usuario , vamos encotnrar el id del modelo USER //creamos una variable usuario que sera igual al modelo USER donde encontremos con este id (FIND es encontrar)
         $user->fill($request->all()); //almacenamos la actualizacion del usaurio, el metodo FILL significa llenar a todo que es ALL, DONDE PASAMOS EL REQUEST AL all //vamos a rellenar el elemento
-        $user->save(); //DESPUES LO GUARDAMOS EL USUARIO-save es guardar default de laraveñ
+        $user->save(); //DESPUES LO GUARDAMOS EL USUARIO-save es guardar default de Laravel
 
         Session::flash('message','Usuario Editado Correctamente'); //aca para que aparezca el mensaje en la variable Session desde aca cuando se actualice el usuario
         return Redirect::to('/usuario'); //retornamos al usuario al index

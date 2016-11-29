@@ -69,4 +69,5 @@ Route::get('edad2/{edad?}', function ($edad = 22) {
 
   //GENERO RUTAS
   //para el AJAX en la creacion de  para el generocontroller su ruta
-  Route::resource('genero', 'GeneroController'); //http://localhost:8000/genero/create 
+  Route::resource('genero', 'GeneroController'); //http://localhost:8000/genero/create
+  //Route::get('generos', 'GeneroController@listing'); //para listar en el index, es lo mismo que en el metodo index del controlador para usar AJAX
