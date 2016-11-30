@@ -45,17 +45,27 @@ class UsuarioController extends Controller{
      * Es la que se encarga de mostrar los listados de los recursos
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-      // $users = \Cinema\User::All(); //hacemos una varialbe users que sera igual hacemos referencia al namespace , al medolo user, y el modelo ALL trae todos los elementos de la tabla USUARIOS - all es por default
-      //$users = User::All(); //ARRIBA YA PUSIMOS USAR EL NAMESPACE Y EL MODELO USUARIO por eso ya no usamos el namespace solo hacemos referencia al modelo y que nos trae todos los datos de la BD
-      $users = User::paginate(5); //sustituimos all por paginate
-  //  $users = User::onlyTrashed()->paginate(5); //mostrara los elementos que han sido elimindados por el soft deleting
-      return view('usuario.index',compact('users'));  //retornamos la vista que se encontrara en la carpeta usuario  y su fichero que se llamara index.blade.php
-    }                                                 //en el index se mostrara la tabla con los datos locahst:8000/usuario
-                                                      //DESPUES SE ENVIA LA INFORMACION PARA ESO , COMPACT y le mandamos la informacion a la vista en la variable users
+//SIN AJAX PAGINACION
+  //   public function index()
+  //   {
+  //     // $users = \Cinema\User::All(); //hacemos una varialbe users que sera igual hacemos referencia al namespace , al medolo user, y el modelo ALL trae todos los elementos de la tabla USUARIOS - all es por default
+  //     //$users = User::All(); //ARRIBA YA PUSIMOS USAR EL NAMESPACE Y EL MODELO USUARIO por eso ya no usamos el namespace solo hacemos referencia al modelo y que nos trae todos los datos de la BD
+  //     $users = User::paginate(5); //sustituimos all por paginate
+  // //  $users = User::onlyTrashed()->paginate(5); //mostrara los elementos que han sido elimindados por el soft deleting
+  //     return view('usuario.index',compact('users'));  //retornamos la vista que se encontrara en la carpeta usuario  y su fichero que se llamara index.blade.php
+  //   }                                                 //en el index se mostrara la tabla con los datos locahst:8000/usuario
+  //                                                     //DESPUES SE ENVIA LA INFORMACION PARA ESO , COMPACT y le mandamos la informacion a la vista en la variable users
                                                       //despues nos vamos a la vista  index.blade.php donde haremos un recorrido con foreach
 
+// CON AJAX PAGINACION
+      public function index(Request $request) //añadimos el request
+        {
+            $users = User::paginate(10);
+            if($request->ajax()){ //SI EL request ES MEDIANTE AJAX
+                return response()->json(view('usuario.users',compact('users'))->render()); //enviamos la respuesta con el parchall que hemos creado que seria el users.blade.php, despues mandamos el metodo render
+            }
+            return view('usuario.index',compact('users'));
+        }
     /**
      * Show the form for creating a new resource.
      *

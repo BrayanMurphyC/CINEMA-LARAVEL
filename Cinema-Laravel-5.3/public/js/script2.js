@@ -6,6 +6,7 @@ $(document).ready(function(){//preguntamos que si el DOCUMENTO o la pagina esta 
 
 //lo va a ejecutar una ves que este listo la pagina:
 
+//LISTAR o mostrar en el index de genero
 function Carga(){
 	var tablaDatos = $("#datos"); //declararemos una variable tabladatos que sera el ID del tbody del index
 	var route = "http://localhost:8000/genero"; //la ruta que nos interesa   Route::resource('genero', 'GeneroController'); de ahi tomamos el genero de donde agarra los metodos ya ponemos donde nos conviene y si queremos crear otro metodo especificamos la ruta
