@@ -20,5 +20,6 @@
 </div>
 <div class="form-group">
 	{!!Form::label('Genero','Genero:')!!}
-	{!!Form::select('genre_id',$genres)!!} {{--Usamos la variable generos q es la lista de generos que existen y se les puede asignar a una pelicula--}}
+	{!!Form::select('genre_id',$genreslist)!!} {{--Usamos la variable genreslist q es la lista de generos que existen y se les puede asignar a una pelicula--}}
 </div>                                   {{--ESTO ESTA SIENDO LISTADO EN EL MovieController EN EL CREATE con el pluck donde nos manda los gnres--}}
+																					{{--es la lista de generos, en el MovieController en el create estamos usando el modelo genero, y trayendo su genero con su id  y enviando el genero al create.blade.php--}}

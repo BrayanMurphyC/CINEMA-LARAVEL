@@ -5,6 +5,8 @@ namespace Cinema\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Cinema\Http\Requests;
+use Cinema\Movie; //incorporamos el modelo Movie
+
 
 class FrontController extends Controller{
 
@@ -31,7 +33,11 @@ class FrontController extends Controller{
     }
     public function reviews()
     {
-      return view('reviews');//RETORNAMOS LA VISTA REVIEEWS
+      //NOS MUESTRA LOS GUARDADO EN EL REVIWS DEL FRONTEND
+
+      $moviesfront = Movie::MoviesConsult(); //cereamos la variable moviesfront y usamos del modelo el metodo de consulta MoviesConsult PODEMOS USAR ALL
+        return view('reviews',compact('moviesfront')); //le enviamos los datos de moviesfront al la vista reviews
+      //return view('reviews');//RETORNAMOS LA VISTA REVIEEWS
     }
       //despues procedemos a crear estas vistas para el ADMINISTRADOR
     public function admin(){  //AGREGAMOS PARA EL ADMINISTRADOR EN EL CONTROLADOR UN MÉTODO

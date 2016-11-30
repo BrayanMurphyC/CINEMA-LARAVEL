@@ -5,6 +5,7 @@ namespace Cinema;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon; //usamos esta libreria DOCUMENTACION: http://carbon.nesbot.com/
+use DB;
 
 class Movie extends Model
 {
@@ -25,10 +26,20 @@ class Movie extends Model
     //CREAMOS UN MUTADOR y SUBIR EL ARCHIVOS AL LOCAL, path esta en el formulario en subir el archivo ES EL NOMBRE DEL FORMULARIO
     //path es el seleccion del archivo
     //sirve para modificar elemnetos antes de ser guardados, por ejemplo las imagenes para que no se reemplaan al tener mismo nombre
-    public function setPathAttribute($path){ //modificaremos el atributo path, estamos recibiendo path
-      $name = Carbon::now()->second.$path->getClientOriginalName();//CON CARBON LE ESPECIFICAMOS LA FECHA DE HOY, TOMAMOS EL SEGUNDOEN QUE ES SUBIDO Y LO CONCATENAMOS AL NOMBRE ORIGINAL DEL ARCHIVO
+                  //  setAttribute el atributo que modifiacra sera el path por eso es setPathAttribute
+    public function setPathAttribute($path){ //modificaremos el atributo path, estamos recibiendo path de la BD
+      $name = Carbon::now()->second.$path->getClientOriginalName();//CON CARBON LE ESPECIFICAMOS LA FECHA DE HOY, TOMAMOS EL SEGUNDOEN QUE ES SUBIDO Y LO CONCATENAMOS AL NOMBRE ORIGINAL DEL ARCHIVO, creamos una variable que contatenara el nombre con los segundos
       $this->attributes['path'] = $name; //hacemos referencia a path  y vamos a cambiarlo el nombre
       \Storage::disk('local')->put($name, \File::get($path)); //ACA SE HACE LA SUBIDA DEL ARCHIVO, especificamos el local y mediante el metodo put vamos a almacenar nuestro archivo, recibe el nombre y el archivo que vamos a subir que es el path
     }
 
+//USAREMOS PARA LEER LOS ARCHIVOS EN EL INDEX, de aca pasamos al MovieController al metodo index
+//creamos el METODO MoviesConsult PARA LLEVAR LA CONSULTA, obtenemos la pelicula con el genero que le CORRESPONDIENTE
+
+    public static function MoviesConsult(){
+    		return DB::table('movies') //usamos la tabla movies
+    			->join('genres','genres.id','=','movies.genre_id')//creamos un join con la tabla generos , donde el id de la tabla generos sea igual al 'movies.genre_id
+    			->select('movies.*', 'genres.genre')//seleccionamos todos los campos de la tabla movies y solo seleccionar el genero de la tabla genero
+    			->get(); //solo obtenemos la consulta
+    	}
 }

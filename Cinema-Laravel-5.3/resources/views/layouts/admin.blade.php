@@ -21,6 +21,9 @@
     {!!Html::style('css/sb-admin-2.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
 
+    {{-- {!!Html::style('http://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')!!} --}}
+
+
 </head>
 
 <body>
@@ -134,6 +137,17 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
+
+  {{-- {!!Html::script('http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')!!} --}}
+
+{{-- <script src="{{ asset('http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js') }}"></script>
+
+<script >
+$(document).ready(function(){
+  $('#myTable').DataTable();
+});
+</script> --}}
+
 
     {{--PARA LOS AJAX - FIN DE SOLO CARGAR CUANDO LO USEMOS, NO SE CARGUE EN TOODO EL PROYECTO, el scrip que usaremos debe de ir  llamando y asiendo referencia al
     la seccion scripts que estamos creando y este le cargara  cuando se usa --}}

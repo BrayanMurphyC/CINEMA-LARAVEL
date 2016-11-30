@@ -22,40 +22,29 @@
 						<div class="reviews-section">
 							<h3 class="head">Movie Reviews</h3>
 								<div class="col-md-9 reviews-grids">
-									<div class="review">
-										<div class="movie-pic">
-											<a href="single.html"><img src="images/r4.jpg" alt="" /></a>
+
+{{--HACEMOS UN RECORRIDO CON LOS DATOS QUE NOS MANDA DESDE EL FrontController metodo reviews--}}
+
+									@foreach ($moviesfront as $moviepeli)
+
+											<div class="review">
+													<div class="movie-pic">
+															<img src="movies/{{$moviepeli->path}}" alt="" /> {{--colocamos las fotos d PELICULA que esta en la carpetamovies y se guarda en el path--}}
+													</div>
+											<div class="review-info">
+														<a class="span" href="single.html">
+														<i>{{$moviepeli->name}}</i></a> {{-- mostramos del moviesfront que trae del modelo MOVIE su nombre--}}
+															<p class="info">CAST:&nbsp;&nbsp;{{$moviepeli->cast}}</p>
+															<p class="info">DIRECTION:&nbsp;&nbsp;{{$moviepeli->direction}}</p>
+															<p class="info">GENRE:&nbsp;&nbsp;{{$moviepeli->genre}}</p>
+															<p class="info">DURATION:&nbsp;&nbsp;{{$moviepeli->duration}}</p>
+											</div>
+											<div class="clearfix"></div>
 										</div>
-										<div class="review-info">
-											<a class="span" href="single.html">Lorem  <i>Movie Review</i></a>
-											<p class="info">CAST:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will Smith, Margot Robbie, Adrian Martinez, Rodrigo Santoro, BD Wong, Robert Taylor</p>
-											<p class="info">DIRECTION: &nbsp;&nbsp;&nbsp;&nbsp;Glenn Ficarra, John Requa</p>
-											<p class="info">GENRE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Crime</p>
-											<p class="info">DURATION:&nbsp;&nbsp;&nbsp; &nbsp; 1 hour 45 minutes</p>
-										</div>
-
-										<div class="clearfix"></div>
-									</div>
-
-
-									<div class="review">
-										<div class="movie-pic">
-											<a href="single.html"><img src="images/r1.jpg" alt="" /></a>
-										</div>
-										<div class="review-info">
-											<a class="span" href="single.html">Lorem  <i>Movie Review</i></a>
-
-											<p class="info">CAST:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will Smith, Margot Robbie, Adrian Martinez, Rodrigo Santoro, BD Wong, Robert Taylor</p>
-											<p class="info">DIRECTION: &nbsp;&nbsp;&nbsp;&nbsp;Glenn Ficarra, John Requa</p>
-											<p class="info">GENRE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Crime</p>
-											<p class="info">DURATION:&nbsp;&nbsp;&nbsp; &nbsp; 1 hour 45 minutes</p>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-
+									@endforeach
 								</div>
 
-
+							</div>
 								<div class="clearfix"></div>
 						</div>
 						</div>
