@@ -21,7 +21,6 @@
     {!!Html::style('css/sb-admin-2.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
 
-
 </head>
 
 <body>
@@ -70,7 +69,7 @@
 {{--preguntamos si el usuario logueado su id es igual a 1 entonces se le permitira mostrar todo esto en la vista si no no le mostrara--}}
 {{--psuse 15 por que es mi usuaario principal--}}
 {{--SECCION USUARIO--}}
-                      @if(Auth::user()->id == 15)
+                      @if(Auth::user()->id == 1)
                         <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -88,10 +87,10 @@
                             <a href="#"><i class="fa fa-film fa-fw"></i> Pelicula<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="/pelicula/create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
+                                    <a href="/pelicula"><i class='fa fa-list-ol fa-fw'></i> Peliculas</a>
                                 </li>
                             </ul>
                         </li>
@@ -135,7 +134,6 @@
     {!!Html::script('js/bootstrap.min.js')!!}
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
-
 
     {{--PARA LOS AJAX - FIN DE SOLO CARGAR CUANDO LO USEMOS, NO SE CARGUE EN TOODO EL PROYECTO, el scrip que usaremos debe de ir  llamando y asiendo referencia al
     la seccion scripts que estamos creando y este le cargara  cuando se usa --}}

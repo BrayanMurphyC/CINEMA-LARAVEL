@@ -15,6 +15,7 @@ return [
     |
     */
 
+// ALMCENA LARAVEL LOS ARCHIVOS DE MANERA LOCAL
     'default' => 'local',
 
     /*
@@ -45,7 +46,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => public_path('movies'), //cambiamos donde almacenara ahora almacenara en PUBLIC/movies -- en la carpeta movies
         ],
 
         'public' => [

@@ -17,10 +17,14 @@ class CreateMoviesTable extends Migration
       Schema::create('movies', function(Blueprint $table) {
           $table->increments('id');
           $table->string('name');
+          /*
+           | En el video tutorial olvide agregar el Path de las imagenes xD
+           */
+          $table->string('path');
           $table->string('cast');
           $table->string('direction');
           $table->string('duration');
-          $table->timestamps(); //siempre queda es la estructura de las migraciones para ver la fecha de modificacion mirar en los MODELOS 
+          $table->timestamps(); //siempre queda es la estructura de las migraciones para ver la fecha de modificacion mirar en los MODELOS
           //para las llaves foraneas
           //estamos asignando un genero por eso usaremos la tabla genero - requiere hacer una relacion
           //el genre_id hara referencia al genero id de la tabla generos

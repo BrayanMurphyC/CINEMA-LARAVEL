@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use Cinema\Http\Requests;
 
+use Cinema\Genre;    //USAMOS EL MODELOS GENERO
+use Cinema\Movie;    //USAMOS EL MODELOS movie
+
 class MovieController extends Controller
 {
     /**
@@ -25,8 +28,10 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return 'estamos en el formulario para crear'; //http://localhost:8000/movie/create
-    }
+      $genres = Genre::pluck('genre', 'id'); //LISTAMOS o arrancamos o cogemos EL GENERO Y EL ID CORRESPONDIENTE DE TODOS LOS GENEROS - pluck ES  ARRANCAR o coger, list ya no se usa
+                                            //SOLO estamos listando el genero y su id, y esto lo utilizamos en un SELECT en el pelicula.blade.php
+      return view('pelicula.create',compact('genres')); //RETORNAMOS A Create.BLADE.PHP y mandamos como datos lo de la variable genero PARA USAR EN EL SELECT LO QUE ESTAMOS COGIENDO QUE ES EL GENERO CON SU id
+    }                                        //despues nos vamos a config/Filesystems.php
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +41,8 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Movie::create($request->all()); //creamos la pelicula QUE LLENE TOODOO
+      return "Listo";                 //nos vamos al modelo MOVIE para condicionar que no reemplace archivos y añadir los campos que puedan ser rellenados
     }
 
     /**
@@ -83,5 +89,5 @@ class MovieController extends Controller
     {
         //
     }
-    
+
 }
