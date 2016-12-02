@@ -9,7 +9,7 @@ $(document).ready(function(){//preguntamos que si el DOCUMENTO o la pagina esta 
 //LISTAR o mostrar en el index de genero
 function Carga(){
 	var tablaDatos = $("#datos"); //declararemos una variable tabladatos que sera el ID del tbody del index
-	var route = "http://localhost:8000/genero"; //la ruta que nos interesa   Route::resource('genero', 'GeneroController'); de ahi tomamos el genero de donde agarra los metodos ya ponemos donde nos conviene y si queremos crear otro metodo especificamos la ruta
+	var route = "/genero"; //la ruta que nos interesa   Route::resource('genero', 'GeneroController'); de ahi tomamos el genero de donde agarra los metodos ya ponemos donde nos conviene y si queremos crear otro metodo especificamos la ruta
 	//var route = "http://localhost:8000/generos";//esta ruta de ejempo que fue creado y usado en el controler el metodo listing
 	$("#datos").empty();//hague referencia a mis datos Y LOS VOY A LIMPIAR
 	$.get(route, function(res){ //hacemos la peticion ajax mediante el metodo get en esta peticion obtendremos una respuesta, DENTRO DE ESA RESPUESTA ESTARAN TODOS LOS GENEROS
@@ -25,7 +25,7 @@ function Carga(){
 
 //creamos la funcion ELIMINAR del btn eliminar sacamos su metodo Eliminar
 function Eliminar(btn) {
-	var route = "http://localhost:8000/genero/"+btn.value+""; //DAMOS L A RUTA que nos importa y concatenamos el valor que toma el boton eliminar
+	var route = "/genero/"+btn.value+""; //DAMOS L A RUTA que nos importa y concatenamos el valor que toma el boton eliminar
 	var token = $("#token").val(); //despues traemos el valor del token, para que la peticion no sea malintencionada
 
 //hacemos la peticion
@@ -45,7 +45,7 @@ function Eliminar(btn) {
 
 //CREAMOS LA FUNCION MOSTRAR DEL BOTON EDITAR para el ACTUALIZAR
 function Mostrar(btn){   //LA FUNCION esta recibiendo ese boton editar
-	var route = "http://localhost:8000/genero/"+btn.value+"/edit"; //CREAMOS LA RUTA con la ruta que nos interesa,especificamos el id del genero que queremos editar, le damos el valor del btn que es igual value="+value.id+" al id
+	var route = "/genero/"+btn.value+"/edit"; //CREAMOS LA RUTA con la ruta que nos interesa,especificamos el id del genero que queremos editar, le damos el valor del btn que es igual value="+value.id+" al id
 //con esto ya realizamos la peticion ajax
 	$.get(route, function(res){ //en esta funcion obtendremos una respuesta nos traera al
 		$("#genre").val(res.genre); //al ID genero le asignamos un valor.. el valor sera la respuesta y vamos a acceder a LO QUE ES EL  genero
@@ -57,7 +57,7 @@ function Mostrar(btn){   //LA FUNCION esta recibiendo ese boton editar
 $("#actualizar").click(function(){ //hacemos referecnia al ID, cuando ese elemento tengga el evento click
 	var value = $("#id").val(); 	//DECLARAMOS LA VARIABLE OBTENEMOS EL ID del genero, del input tipo oculto de donde obtendremos su valor esta en el MODAL.BLADE.PHP
 	var dato = $("#genre").val(); //otra variable tomamos el valor de nuestro input text en su id genre, que esta en el form/genero.blade.php
-	var route = "http://localhost:8000/genero/"+value+""; //OTRA VARIABLE ES LA RUTA QUE HACEMOS referencia, especificamos el ID del genero PARA ESO CONCATENAMOS la variable value que trae el id del input oculto en el modal
+	var route = "/genero/"+value+""; //OTRA VARIABLE ES LA RUTA QUE HACEMOS referencia, especificamos el ID del genero PARA ESO CONCATENAMOS la variable value que trae el id del input oculto en el modal
 	var token = $("#token").val(); //despues traemos el valor del token, para que la peticion no sea malintencionada
 
 //hacemos la peticion

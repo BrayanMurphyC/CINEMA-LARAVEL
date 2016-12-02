@@ -3,7 +3,6 @@
 $(document).on('click','.pagination a',function(e){ //obtenemos el evento click y hacemos referencia a la clase pagination de boostra y al link A, despues creamos una funcion y obtenemos  un evento (e)
     e.preventDefault(); //PREVENIMOS QUE ESE EVENTO(e) desencadene algo
     var page = $(this).attr('href').split('page=')[1]; //CREAMOS UNA VARIABLE PAGE, Y HACEMOS REFERENCIA AL ATRIBUTO href, split divide la cadena y vamos a obtener la posicion 1 PARA QUE NOS ENVIE LA PAGINA CORRESPONDIENTE en esta posicion
-    var route = "http://localhost:8000/usuario";//CREAMOS LA VARIABLE que rera igual a LA RUTA USUARIO QUE NOS INTERESAS
     //creamos la peticion ajax
     $.ajax({
         url: route, //ESPECIFICAMOS LA URL

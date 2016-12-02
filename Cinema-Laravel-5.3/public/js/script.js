@@ -1,7 +1,7 @@
 // REGISTRAR O CREAR GENEROS
 $("#registro").click(function(){ //usamos el ID REGISTRO DEL link_to en create.blade.php cuando tenemos un evento click HARA
 	var dato = $("#genre").val(); //especificamos el dato que sera igual ID del INPUT de genero.blade.php,y OBTENDREMOS su valor
-	var route = "http://localhost:8000/genero"; //en esta variable es igual a la ruta que nos interesa,IGUAL QUE EL SIN AJAX solo se pone en general ya no ('route'=>'genero.store') puerto 8000 y la ruta es el genero - URI; PARA CREER UN RECURSO TENEMOS QUE HACER REFERENCIA AL RECURSO  EN LA RUTA Y ENVIARLO POR METODO POST
+	var route = "/genero"; //en esta variable es igual a la ruta que nos interesa,IGUAL QUE EL SIN AJAX solo se pone en general ya no ('route'=>'genero.store') puerto 8000 y la ruta es el genero - URI; PARA CREER UN RECURSO TENEMOS QUE HACER REFERENCIA AL RECURSO  EN LA RUTA Y ENVIARLO POR METODO POST
 	var token = $("#token").val(); //creamos esta variable token que toma el valor DEL ID del que tenga el token (id='token')
 
 //peticion AJAX
