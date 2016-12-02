@@ -24,6 +24,7 @@
     {{-- {!!Html::style('http://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')!!} --}}
 
 
+
 </head>
 
 <body>
@@ -39,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Cinema Admin</a>
+                <a class="navbar-brand" href="/admin">Cinema Admin</a>
             </div>
 
 
@@ -53,9 +54,9 @@
                       <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="https://www.facebook.com/brayanmurphy.crespoespinoza"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="https://www.facebook.com/brayanmurphy.crespoespinoza"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         {{-- Le decimos que se vaye al metodo logout del controlador LogController y ya cerrara sesion--}}
@@ -138,6 +139,7 @@
     {!!Html::script('js/metisMenu.min.js')!!}
     {!!Html::script('js/sb-admin-2.js')!!}
 
+    {{-- <script src="{{ URL::asset('http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js') }}"></script> --}}
   {{-- {!!Html::script('http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')!!} --}}
 
 {{-- <script src="{{ asset('http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js') }}"></script>

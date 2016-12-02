@@ -8,9 +8,22 @@ use Cinema\Http\Requests;
 
 use Cinema\Genre;    //USAMOS EL MODELOS GENERO
 use Cinema\Movie;    //USAMOS EL MODELOS movie
+use Session;
+use Redirect;
+use Illuminate\Routing\Route;
 
 class MovieController extends Controller
 {
+  //optimizacion el codigo
+
+  // public function __construct(){
+  //      $this->middleware('auth');
+  //      $this->middleware('admin');
+  //      $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
+  //  }
+  //  public function find(Route $route){
+  //      $this->movie = Movie::find($route->getParameter('pelicula'));
+  //  }
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +59,9 @@ class MovieController extends Controller
     public function store(Request $request)
     {
       Movie::create($request->all()); //creamos la pelicula QUE LLENE TOODOO
-      return "Listo";                 //nos vamos al modelo MOVIE para condicionar que no reemplace archivos y añadir los campos que puedan ser rellenados
+      //return "Listo";                 //nos vamos al modelo MOVIE para condicionar que no reemplace archivos y añadir los campos que puedan ser rellenados
+        Session::flash('message','Pelicula Creada Correctamente');
+        return Redirect::to('/pelicula');
     }
 
     /**
@@ -68,7 +83,9 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+          $movie = Movie::find($id);//pasamos la pelicula con su id correspondiente
+          $genreslist = Genre::pluck('genre', 'id'); //NECESITAMOS PASAR EL GENERO LISTADO
+          return view('pelicula.edit',compact('movie','genreslist'));//pasamos la pelicula correspondiente y mandamos la variable con la lista de los generos
     }
 
     /**
@@ -80,7 +97,13 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $movie = Movie::find($id);  //buscamos al usuario , vamos encotnrar el id del modelo USER //creamos una variable usuario que sera igual al modelo USER donde encontremos con este id (FIND es encontrar)
+        $movie->fill($request->all()); //almacenamos la actualizacion del usaurio, el metodo FILL significa llenar a todo que es ALL, DONDE PASAMOS EL REQUEST AL all //vamos a rellenar el elemento
+        $movie->save(); //DESPUES LO GUARDAMOS EL USUARIO-save es guardar default de Laravel
+
+        Session::flash('message','Pelicula Editado Correctamente'); //aca para que aparezca el mensaje en la variable Session desde aca cuando se actualice el usuario
+        return Redirect::to('/pelicula');
     }
 
     /**
@@ -91,7 +114,10 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $movie = Movie::find($id);
+      $movie->delete(); //y hacemos referencia al metodo delete
+      Session::flash('message','Pelicula Eliminada Correctamente'); //aca para que aparezca el mensaje en la variable Session desde aca cuando se elimine el usuario
+      return Redirect::to('/pelicula'); //retornamos al usuario al index
     }
 
 }

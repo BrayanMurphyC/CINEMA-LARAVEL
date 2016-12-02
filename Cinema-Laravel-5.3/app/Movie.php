@@ -28,10 +28,26 @@ class Movie extends Model
     //sirve para modificar elemnetos antes de ser guardados, por ejemplo las imagenes para que no se reemplaan al tener mismo nombre
                   //  setAttribute el atributo que modifiacra sera el path por eso es setPathAttribute
     public function setPathAttribute($path){ //modificaremos el atributo path, estamos recibiendo path de la BD
-      $name = Carbon::now()->second.$path->getClientOriginalName();//CON CARBON LE ESPECIFICAMOS LA FECHA DE HOY, TOMAMOS EL SEGUNDOEN QUE ES SUBIDO Y LO CONCATENAMOS AL NOMBRE ORIGINAL DEL ARCHIVO, creamos una variable que contatenara el nombre con los segundos
-      $this->attributes['path'] = $name; //hacemos referencia a path  y vamos a cambiarlo el nombre
-      \Storage::disk('local')->put($name, \File::get($path)); //ACA SE HACE LA SUBIDA DEL ARCHIVO, especificamos el local y mediante el metodo put vamos a almacenar nuestro archivo, recibe el nombre y el archivo que vamos a subir que es el path
-    }
+
+    if(! empty($path)){ //El campo path no debe estar vacio para que ejecute toda esa accion
+        $name = Carbon::now()->second.$path->getClientOriginalName();//CON CARBON LE ESPECIFICAMOS LA FECHA DE HOY, TOMAMOS EL SEGUNDOEN QUE ES SUBIDO Y LO CONCATENAMOS AL NOMBRE ORIGINAL DEL ARCHIVO, creamos una variable que contatenara el nombre con los segundos
+        $this->attributes['path'] = $name; //hacemos referencia a path  y vamos a cambiarlo el nombre
+        \Storage::disk('local')->put($name, \File::get($path)); //ACA SE HACE LA SUBIDA DEL ARCHIVO, especificamos el local y mediante el metodo put vamos a almacenar nuestro archivo, recibe el nombre y el archivo que vamos a subir que es el path
+      }
+      }
+//
+    //   public function setPathAttribute($path){
+    //
+    //     if(!empty($path)){
+    //         /* Para Actualizar Imagen */
+    //         if(!empty($this->attributes['path'])){
+    //             \Storage::delete($this->attributes['path']);
+    //         }
+    //         $this->attributes['path] = Carbon::now()>second.$path>getClientOriginalName();
+    //         $name = Carbon::now()>second.$path>getClientOriginalName();
+    //         \Storage::disk('local')->put($name, \File::get($path));
+    //     }
+    // }
 
 //USAREMOS PARA LEER LOS ARCHIVOS EN EL INDEX, de aca pasamos al MovieController al metodo index
 //creamos el METODO MoviesConsult PARA LLEVAR LA CONSULTA, obtenemos la pelicula con el genero que le CORRESPONDIENTE
