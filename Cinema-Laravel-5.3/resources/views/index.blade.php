@@ -41,7 +41,10 @@
 			{!!Form::submit('Iniciar', ['class'=>'btn btn-primary'])!!}
 	{!!Form::close()!!}
 
-
+	{{--en el link_to asignamos la ruta que esta en el web.php que nos manda aca--}}
+	{{--usamos el HOME CONTROLER al usar la autentificacion de laravel que crea por defecto mirar la documentacion--}}
+	{!!link_to('password/reset', $title = '¿Olvidaste tu contraseña?', $attributes = null, $secure = null)!!} <br>
+	{!!link_to('/register', $title = '¿Desea Registrarse?', $attributes = null, $secure = null)!!}
 <!-- descripcion de la pelicula de la pagina -->
 
 <p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p>

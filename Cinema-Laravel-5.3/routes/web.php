@@ -77,3 +77,10 @@ Route::get('edad2/{edad?}', function ($edad = 22) {
 
   //MAIL RUTAS
   Route::resource('mail', 'MailController');
+
+  //RESETEO DE CUENTAS, RESTABLECER PASSWORD
+  //SE CREAN AUTOMATICAMENTE LAS SIGUIENTES LINEAS EN LA autentificacion CUANDO USAMOS VER DOCUMENTACION
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -36,7 +36,8 @@ class User extends Authenticatable
     public function setPasswordAttribute($valor)  //recibimos un valor
     {
       if (!empty($valor)) { //dond preguntamos que si ese valor no esta vacio vamos a cambiar la contraseña.... ,
-        $this->attributes['password'] = \Hash::make($valor);  //el metodo hash es para poder encriptar la contraseña y le vamos a pasar el valor, creamos este metodo para usar en el controler ya no sera necesario encrptar.
+        //$this->attributes['password'] = \Hash::make($valor);  //el metodo hash es para poder encriptar la contraseña y le vamos a pasar el valor, creamos este metodo para usar en el controler ya no sera necesario encrptar.
+        $this->attributes['password'] = $valor; //quito para hash no encriptar cuando restablesco la contraseña, no encriptara cuando agrego desde adentro, cuando uso de laravel si funciona
       }
     }
 }
