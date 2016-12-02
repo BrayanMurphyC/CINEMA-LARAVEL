@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'), //ESPECIFICAMOS QUE USAREMOS GMAIL
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 465), //CONFIGURAMOS EL PUERTO
 
     /*
     |--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
+                                                    //ESPECIFICAMOS NUESTROS DATOS
     'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
+        'address' => 'BrayanMurphyC@gmail.com',
+        'name' => 'Brayan Murphy Crespo Espinoza',
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),     //TIPO DE ENCRIPTADO
 
     /*
     |--------------------------------------------------------------------------

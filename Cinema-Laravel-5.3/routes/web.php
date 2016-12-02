@@ -74,3 +74,6 @@ Route::get('edad2/{edad?}', function ($edad = 22) {
 
   //PELICULAS RUTAS
     Route::resource('pelicula', 'MovieController');
+
+  //MAIL RUTAS
+  Route::resource('mail', 'MailController');

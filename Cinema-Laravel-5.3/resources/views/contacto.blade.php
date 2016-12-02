@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
 <!--REPITE-->
-
+@include('alerts.success') <!--sirve para el Session Flash de los mensajes de los controladores-->
 <!--FIN REPITE-->
 			<div class="contact-content">
 			<div class="top-header span_top">
@@ -17,12 +17,28 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+
 			<!---contact-->
 <div class="main-contact">
-		 <h3 class="head">CONTACT</h3>
-		 <p>WE'RE ALWAYS HERE TO HELP YOU</p>
+		 <h3 class="head">CONTACTO</h3>
+		 <p>SIEMPRE ESTAMOS AQUÍ PARA AYUDARLO</p>
 		 <div class="contact-form">
-			 <form>
+
+
+			 {!!Form::open(['route'=>'mail.store','method'=>'POST'])!!}		 {{--ESPECIFICAMOS LA RUTA que sera al store del mailcontroller Y EL METODO QUE VAMOS A ENVIAR LA INFORMACION--}}
+					 <div class="col-md-6 contact-left">
+						 {!!Form::text('name',null,['placeholder' => 'Nombre'])!!}
+						 {!!Form::text('email',null,['placeholder' => 'Email'])!!}
+					 </div>
+					 <div class="col-md-6 contact-right">
+						 {!!Form::textarea('mensaje',null,['placeholder' => 'Mensaje'])!!}
+					 </div>
+					 {!!Form::submit('SEND')!!}
+					{!!Form::close()!!}
+
+
+			{{-- LO PASAMOS ESTA PARTE DE CONTACTO A FORM COLLETCTIVE DE LARAVEL BLADE--}}
+			 {{-- <form>
 				 <div class="col-md-6 contact-left">
 					  <input type="text" placeholder="Name" required/>
 					  <input type="text" placeholder="E-mail" required/>
@@ -33,7 +49,7 @@
 					 <input type="submit" value="SEND"/>
 				 </div>
 				 <div class="clearfix"></div>
-			 </form>
+			 </form> --}}
 	     </div>
 </div>
 

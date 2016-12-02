@@ -41,9 +41,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--REPITE-->
 	<div class="footer">
-		<h6>Disclaimer : </h6>
-		<p class="claim">This is a freebies and not an official website, I have no intention of disclose any movie, brand, news.My goal here is to train or excercise my skill and share this freebies.</p>
-		<a href="example@mail.com">example@mail.com</a>
+		<h6>DECLARACION : </h6>
+		<p class="claim">Este es un freebies y no un sitio web oficial, no tengo intención de revelar ninguna película, marca, noticias. Mi objetivo aquí es entrenar o ejercitar mi habilidad y compartir este freebies.</p>
+		<h4>CORREO:</h4>
+		<a href="https://www.facebook.com/brayanmurphy.crespoespinoza">BrayanMurphyC@gmail.com</a>
+		<h4>FACEBOOK:</h4>
+		<a href="https://www.facebook.com/brayanmurphy.crespoespinoza">brayanmurphy.crespoespinoza</a>
 		<div class="copyright">
 			<p> Template by  <a href="http://w3layouts.com">  W3layouts</a></p>
 		</div>

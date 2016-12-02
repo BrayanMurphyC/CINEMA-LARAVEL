@@ -1,3 +1,4 @@
+<!--sirve para el Session Flash de los mensajes de los CONTROLADORES-->
 {{--MENSAJE DE CONFIRMACION CORRECTA--}}
 {{--mensaje de confirmacion de editado creado de usuarios--}}
 {{--Usamos session para no repetir codigo constantemente --}}
