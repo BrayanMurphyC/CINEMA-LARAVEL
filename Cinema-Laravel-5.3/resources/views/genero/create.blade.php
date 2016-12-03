@@ -19,7 +19,7 @@
 
 {{-- Incluimos link_to donde no nos llevara a ninguna ruta, el titulo registrar y como atributo le pasamos el ID el cual sera
 registro y el segundo le pasaremos la clase--}}
-      {!!link_to('#', $title='Registrar', $attributes = ['id'=>'registro', 'class'=>'btn btn-primary'], $secure = null)!!}
+      {!!link_to('/genero', $title='Registrar', $attributes = ['id'=>'registro', 'class'=>'btn btn-primary'], $secure = null)!!}
 
       {!!Form::close()!!}
 	  @endsection

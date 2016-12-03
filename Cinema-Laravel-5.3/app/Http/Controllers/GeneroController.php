@@ -37,7 +37,7 @@ class GeneroController extends Controller
       }
       return view('genero.index');
 
-//PARA PAGINAR CON AJAX 
+//PARA PAGINAR CON AJAX
       // $genres = Genre::paginate(2);
       // return response()->json([
       //         'datos' => $genres->toArray(),
