@@ -26,4 +26,6 @@
 				</tbody>
 			@endforeach
 		</table>
+		{{--rendereamos la paginacion para que pueda mostrar de la  que contiene la variable de todos los usuarios, tiene el listado de todos los usuarios--}}
+		{{-- {!!$moviespag->render()!!} --}}
 	@endsection

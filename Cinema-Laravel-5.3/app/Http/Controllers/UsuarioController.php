@@ -105,14 +105,23 @@ class UsuarioController extends Controller{
            // return "Usuario Registrado"; //nos dice si se registro el usuario y no retorna
          ]);
 */
-          User::create($request->all());   //asi optimizamos de la parte de arriba el codigo seleccionado todo
 
-          // return "Usuario Registrado"; //nos dice si se registro el usuario y no retorna
-          // return redirect('/usuario')->with('message','store'); //ESTO RETORNARA AL INDEX DE USUARIO, confirmando su registro con un mensaje que se almacenó(store) nos vamos al index.blade hacer un if para el mensaje de confirmacion
-          //todo lo pasamos a esta otra forma
-          //usamos sus paquetes ponemos para usar Session y Redirect
+//ENCRIPTAMOS LA CONTRASEÑA POR LA RESTABLECER NO PUEDE ay interferencia, el anterior tambm funciona asi Y DE ADELANTE TOMA MAS OPTIMIZADO EL CODIGO
+                User::create([
+                  'name'=> $request['name'],
+                  'email'=> $request['email'],
+                  'password'=> bcrypt($request['password']), //encriptamos la contraseña en laravel
+
+                ]);
+
+                Session::flash('message','Usuario creado Correctamente');
+                return Redirect::to('/usuario');
+/*
+          User::create($request->all());   //asi optimizamos de la parte de arriba el codigo seleccionado todo
+                                                                               //usamos sus paquetes ponemos para usar Session y Redirect
           Session::flash('message','Usuario creado Correctamente'); //HACEMOS ENVIAR EL MENSAJE DE CONFIRMACION DE REGISTRADO correctamente
           return Redirect::to('/usuario'); //redireciona al index usuario igual que el anerior son dos formas de escribir
+*/
     }
 
     /**
@@ -151,7 +160,8 @@ class UsuarioController extends Controller{
     //public function update(Request $request, $id) //request es solicitud - de actulizar em este caso por el id del usuario
       public function update(UserUpdateRequest $request, $id) //POR LAS VALIDACIONES camniamos EL request por UserUpdateRequest ya que aca usaremos las actualizaciones y nos debearrojar el error aca
     {
-        //creamos las funciones para que pueda ser actualizado
+        //creamos las funciones para que pueda ser actualizado, falta ENCRIPTAR la contraseña por el restablecer email
+
         $user = User::find($id);  //buscamos al usuario , vamos encotnrar el id del modelo USER //creamos una variable usuario que sera igual al modelo USER donde encontremos con este id (FIND es encontrar)
         $user->fill($request->all()); //almacenamos la actualizacion del usaurio, el metodo FILL significa llenar a todo que es ALL, DONDE PASAMOS EL REQUEST AL all //vamos a rellenar el elemento
         $user->save(); //DESPUES LO GUARDAMOS EL USUARIO-save es guardar default de Laravel

@@ -31,7 +31,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-      $movies2 = Movie::MoviesConsult(); //creamos una variable movies2 que sera igual al modelo movie y especificamos nuestro modelo MoviesConsult que esta haciendo la consulta, si pongo ALL tambm funciona
+        $movies2 = Movie::MoviesConsult(); //creamos una variable movies2 que sera igual al modelo movie y especificamos nuestro modelo MoviesConsult que esta haciendo la consulta, si pongo ALL tambm funciona
+      //  $moviespag = Movie::paginate(3); //para paginar lo rendereamos en el index
       //  $return $movies; para ver la consilta prueba
        return view('pelicula.index',compact('movies2')); //RETORNAREMOS A index.blade Y ENVIAMOS los datos que esta en la variable que creamos
 
@@ -86,7 +87,8 @@ class MovieController extends Controller
           $movie = Movie::find($id);//pasamos la pelicula con su id correspondiente
           $genreslist = Genre::pluck('genre', 'id'); //NECESITAMOS PASAR EL GENERO LISTADO
           return view('pelicula.edit',compact('movie','genreslist'));//pasamos la pelicula correspondiente y mandamos la variable con la lista de los generos
-    }
+
+      }
 
     /**
      * Update the specified resource in storage.

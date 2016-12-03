@@ -30,6 +30,14 @@ Curso de Laravel 5.3 donde aprenderemos a crear una aplicación web dinámica :D
 
         $ php artisan migrate
 
++ Para cargar los datos de los seeders
+
+  $ php artisan db:seed
+
++ Nota: Para realizar el "migrate" y a la vez procesar los seeders, en un solo paso, tienes como alternativa de lanzar el siguiente comando.
+
+  $ php artisan migrate:refresh --seed
+
 + Listo ya podemos ejecutar el proyecto Cinema.
 
         $ php artisan serve

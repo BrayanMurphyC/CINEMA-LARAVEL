@@ -11,6 +11,8 @@
 |
 */
 
+//SIRVE PARA CREAR DE MANERA ALEATORIA LOS DATOS DE PRUEBA
+//MODELO PARA EL USER
 $factory->define(Cinema\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -21,3 +23,5 @@ $factory->define(Cinema\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+//MODELO PARA EL GENERO-para que crea de manera aleatoria

@@ -10,7 +10,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
+    {    //se llamara los Seeder en orden
+         $this->call(UsersTableSeeder::class);   //comando: php artisan db:seed, se ejecutara en esete ordenel seeder
+        $this->call(GenerosTableSeeder::class);  //SEGUNDO SE EJECUTA EL SEED DE GENEROS DONDE INSERTARA VALORES
     }
 }
