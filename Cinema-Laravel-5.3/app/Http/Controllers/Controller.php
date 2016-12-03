@@ -11,6 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+//Metodo para el error 404
     public function NotFound($value)
     {
       if ($value) {

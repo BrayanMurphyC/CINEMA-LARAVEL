@@ -5,22 +5,33 @@
 
 <!--FIN REPITE-->
 
-			<div class="review-content">
-						<div class="top-header span_top">
-							<div class="logo">
-								<a href="index.html"><img src="images/logo.png" alt="" /></a>
-								<p>Movie Theater</p>
-							</div>
-							<div class="search v-search">
-								<form>
-									<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
-									<input type="submit" value="">
-								</form>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="reviews-section">
-							<h3 class="head">Movie Reviews</h3>
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<body>
+	<!-- header-section-starts -->
+	<div class="full">
+
+
+		<div class="review-content">
+			<div class="top-header span_top">
+				<div class="logo">
+					<a href="/"><img src="images/logo.png" alt="" /></a>
+					<p>CINEMA MURPHY</p>
+				</div>
+				<div class="search v-search">
+					<form>
+						<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
+						<input type="submit" value="">
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="reviews-section">
+				<h3 class="head">Movie Reviews</h3>
 								<div class="col-md-9 reviews-grids">
 
 {{--HACEMOS UN RECORRIDO CON LOS DATOS QUE NOS MANDA DESDE EL FrontController metodo reviews--}}
@@ -47,7 +58,7 @@
 							</div>
 								<div class="clearfix"></div>
 						</div>
-						</div>
+
 					<div class="review-slider">
 						 <ul id="flexiselDemo1">
 							<li><img src="images/r1.jpg" alt=""/></li>
@@ -58,6 +69,8 @@
 							<li><img src="images/r6.jpg" alt=""/></li>
 						</ul>
 					</div>
+				</div>
+</body>
 <!--REPITE-->
 
 <!--FIN REPITE-->

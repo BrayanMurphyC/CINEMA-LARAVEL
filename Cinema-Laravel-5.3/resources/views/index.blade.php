@@ -6,8 +6,8 @@
 	<div class="header">
 	<div class="top-header">
 	<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt="" /></a>
-			<p>Movie Theater</p>
+			<a href="/"><img src="images/logo.png" alt="" /></a>
+			<p>CINEMA MURPHY</p>
 	</div>
 	<div class="search">
 			<form>
