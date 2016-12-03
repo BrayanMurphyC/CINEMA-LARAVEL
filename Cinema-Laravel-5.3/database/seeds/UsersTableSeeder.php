@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
           DB::table('users')->insert([
              'name' => 'Brayan Murphy Crespo Espinoza',
              'email' => 'BrayanMurphyC@gmail.com',
-             'password' => bcrypt('123456'),
+             'password' => bcrypt('admin'),
          ]);
 
         //usamos los factories, en la carpeta de factories configuramos par a que usuar genere aleatoriamente, hacer para las demas tablas lo mismo

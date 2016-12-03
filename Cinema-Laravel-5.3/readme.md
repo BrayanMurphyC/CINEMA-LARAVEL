@@ -57,6 +57,10 @@ BrayanMurphy
 
  TUTORIAL (youtube):
  https://www.youtube.com/playlist?list=PLIddmSRJEJ0u-5Nv2k6W8Vhe0wUP_7H5W
+
+ DATOS DEL SEEDER PARA INICIAR-SUPERUSUARIO:
+ CORREO: BrayanMurphyC@gmail.com'
+ PASS:   admin
 ---------------------------------------------------------------------------
 # Laravel PHP Framework
 
